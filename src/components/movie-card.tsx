@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import imdbIcon from '../../assets/imdb-icon.png';
-import rottenTomatoesIcon from '../../assets/rotten-tomatoes-icon.png';
+import imdbIcon from '../assets/imdb-icon.png';
+import rottenTomatoesIcon from '../assets/rotten-tomatoes-icon.png';
 import { Movie } from '../shared/types';
 import Link from 'next/link';
 
