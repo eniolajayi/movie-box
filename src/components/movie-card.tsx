@@ -42,7 +42,7 @@ export default function MovieCard({
           </span>
           <h3>
             <Link data-testid="movie-title" href={`/movies/${id}`}>
-              {title} {id}
+              {title}
             </Link>
           </h3>
           <div>
