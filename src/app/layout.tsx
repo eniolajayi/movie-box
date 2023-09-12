@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" style={dmSans.style}>
-      <body className=' text-gray-950'>
+      <body className=' text-gray-950 leading-normal'>
         <header className=' px-4 py-3 md:container md:mx-auto '>
           <nav className=' grid items-center justify-between grid-cols-[200px_525px_180px]'>
             <Logo />
