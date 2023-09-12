@@ -12,7 +12,7 @@ export default function HeroSection() {
         <div className="w-full h-[600px] flex items-center ">
           <div className="w-[400px] flex flex-col gap-4 items-start text-gray-50">
             <h1 className=" text-5xl font-bold leading-snug">
-              John Wick 3 : <br /> Parabellum
+              John Wick 3 : <br className='xs:hidden'/> Parabellum
             </h1>
             <div className="w-full flex gap-6">
               <div className="flex gap-2">

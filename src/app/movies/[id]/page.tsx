@@ -52,7 +52,7 @@ export default async function MovieDetails({
               <span>min</span>{' '}
             </span>
           </h1>
-          <div className="flex gap-5">
+          <div className="flex gap-5 flex-wrap">
             {sortedGenresNames.map((genreName) => {
               return <Badge variant={'primary'}>{genreName}</Badge>;
             })}
@@ -61,7 +61,7 @@ export default async function MovieDetails({
         <div>
           <p
             data-testid="movie-overview"
-            className="w-[60ch] text-justify text-xl"
+            className="lg:w-[60ch] w-full text-justify text-xl"
           >
             {details.overview}
           </p>

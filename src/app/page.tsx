@@ -33,10 +33,14 @@ export default async function Home() {
         </div>
       </section>
       <main>
-        <div className="px-4 py-3 md:container md:mx-auto min-h-[400px]">
-          <div className="grid grid-cols-4 gap-20 ">
+        <div className="px-4 py-3 container mx-auto min-h-[400px]">
+          <div
+            className="w-full grid lg:gap-20 md:gap-5 xs:gap-9 mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+           
+          >
             <Suspense fallback={<h1>Loading featured movies...</h1>}>
               {featMovies.map((result) => {
+                // Todo Cleanup
                 const resultDate = new Date(result.release_date);
                 const imdbRating = getPercentValue(result.vote_average, 10);
                 const rtRating = getPercentValue(result.popularity / 100, 10);

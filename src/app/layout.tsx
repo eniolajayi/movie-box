@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Equal, FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from 'lucide-react';
 import { dmSans } from '@/styles/fonts';
+import tmdbLogo from '@/assets/tmdb-logo-long-blue.svg';
 
 export const metadata: Metadata = {
   title: 'MovieBox',
@@ -22,10 +23,10 @@ export default function RootLayout({
     <html lang="en" style={dmSans.style}>
       <body className=' text-gray-950 leading-normal'>
         <header className=' px-4 py-3 md:container md:mx-auto '>
-          <nav className=' grid items-center justify-between grid-cols-[200px_525px_180px]'>
+          <nav className=' grid items-center gap-3 justify-between md:grid-cols-[1fr_2fr_1fr]'>
             <Logo />
-            <SearchBar label="What do you want to watch?" />
-            <div className="flex items-center justify-between">
+            <SearchBar  label="What do you want to watch?" />
+            <div className="md:flex hidden items-center justify-end gap-4">
               <Link href={'/'} className='font-bold text-base'>Sign In</Link>
               <Button
                 size={'icon'}
@@ -46,12 +47,12 @@ export default function RootLayout({
               <TwitterIcon />
               <YoutubeIcon />
             </div>
-            <div className='flex justify-between items-center my-9'>
+            <div className='flex flex-wrap justify-between items-center my-9'>
               <Link className='' href={"/"}>Condition of Use</Link>
               <Link href={"/"}>Privacy & Policy</Link>
               <Link href={"/"}>Press Room</Link>
             </div>
-            <p className=' text-center text-gray-500 '>© 2021 MovieBox by Eniola Ajayi</p>
+            <p className=' text-center text-gray-500 '>© 2021 MovieBox by Eniola Ajayi. All data or images used are provied by <Link href={'https://www.themoviedb.org/'}>themoviedb.org</Link></p>
           </div>
         </footer>
       </body>

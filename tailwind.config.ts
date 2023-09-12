@@ -15,6 +15,10 @@ const config: Config = {
         '2xl': '1400px',
       },
     },
+    screens: {
+      xs: '320px',
+      ...defaultTheme.screens,
+    },
     extend: {
       fontFamily: {
         sans: ['"DM Sans"', ...defaultTheme.fontFamily.sans],

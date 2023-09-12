@@ -49,7 +49,7 @@ export default async function SearchDetails({
             Results found
           </h2>
         </div>
-        <div className="grid grid-cols-4 gap-20 ">
+        <div className="w-full grid lg:gap-20 md:gap-5 xs:gap-9 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {data.results.map((result) => {
             const resultDate = new Date(result.release_date);
             const imdbRating = getPercentValue(result.vote_average, 10);
