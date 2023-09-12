@@ -23,12 +23,11 @@ export default async function MovieDetails({
           {details.backdrop_path ? (
             <div className="h-[450px]">
               <Image
-                src={`https://image.tmdb.org/t/p/original/${details.backdrop_path}`}
+                src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
                 width={700}
                 height={450}
                 alt={''}
                 className="w-full h-full object-cover rounded-2xl"
-                fill
                 loading={'eager'}
                 priority
               />
