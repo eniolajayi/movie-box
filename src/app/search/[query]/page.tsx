@@ -1,29 +1,9 @@
 import MovieCard from '@/components/movie-card';
+import { findMovieByTitle } from '@/shared/tmdb';
 import { TMDBResponse } from '@/shared/types';
 import { getGenreNames, getPercentValue } from '@/shared/utils';
 import { ChevronLeftIcon } from 'lucide-react';
 import Link from 'next/link';
-import { Suspense } from 'react';
-
-async function findMovieByTitle(movieTitle: string) {
-  const url = `https://api.themoviedb.org/3/search/movie?query=${movieTitle}&include_adult=false&language=en-US&page=1`;
-
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: `Bearer ${process.env.TMDB_BEARER_TOKEN}`,
-    },
-  };
-
-  const res = await fetch(url, options);
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
-}
 
 export default async function SearchDetails({
   params,

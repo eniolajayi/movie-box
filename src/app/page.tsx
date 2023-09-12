@@ -5,26 +5,7 @@ import { getGenreNames, getPercentValue } from '../shared/utils';
 import { ChevronRightIcon } from 'lucide-react';
 import { Suspense } from 'react';
 import HeroSection from './hero';
-
-async function getTopRatedMovies() {
-  const url =
-    'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: `Bearer ${process.env.TMDB_BEARER_TOKEN}`,
-    },
-  };
-
-  const res = await fetch(url, options);
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
-}
+import { getTopRatedMovies } from '@/shared/tmdb';
 
 export default async function Home() {
   const data: TMDBResponse = await getTopRatedMovies();

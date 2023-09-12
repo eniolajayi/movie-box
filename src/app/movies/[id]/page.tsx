@@ -1,28 +1,10 @@
 import { Badge } from '@/components/ui/badge';
+import { getMovieDetails } from '@/shared/tmdb';
 import { TMDBMovieDetailsResult } from '@/shared/types';
 import { poppins } from '@/styles/fonts';
 import { ChevronLeftIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-async function getMovieDetails(movieId: number) {
-  const url = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`;
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: `Bearer ${process.env.TMDB_BEARER_TOKEN}`,
-    },
-  };
-
-  const res = await fetch(url, options);
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
-}
 
 export default async function MovieDetails({
   params,
