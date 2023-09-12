@@ -25,7 +25,7 @@ export default function RootLayout({
           <nav className=' grid items-center justify-between grid-cols-[200px_525px_180px]'>
             <Logo />
             <SearchBar label="What do you want to watch?" />
-            <div className="flex items-center gap-7">
+            <div className="flex items-center justify-between">
               <Link href={'/'} className='font-bold text-base'>Sign In</Link>
               <Button
                 size={'icon'}
