@@ -33,7 +33,7 @@ export default async function SearchDetails({
   return (
     <section className="mt-12">
       <div className="px-4 py-3 md:container md:mx-auto min-h-[400px]">
-        <div className=" h-14 mb-3 flex justify-between">
+        <div className=" h-14 mb-3 flex flex-wrap justify-between">
           {/* Todo make a reusable button out of 'Go back' link */}
           <Link
             href={'/'}
