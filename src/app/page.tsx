@@ -60,7 +60,7 @@ export default async function Home() {
                     key={result.id}
                     id={result.id}
                     title={result.title}
-                    poster_url={`https://image.tmdb.org/t/p/w500${result.poster_path}`}
+                    poster_url={result.poster_path}
                     release_date={resultDate}
                     release_type={''}
                     genre=""
