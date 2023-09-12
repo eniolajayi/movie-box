@@ -9,6 +9,8 @@ import { Suspense } from 'react';
 
 export type MovieCardProps = Movie;
 
+// Todo Refactor MovieCard component for Re-usablity 
+// Todo Remove any tight coupling from MovieCard component
 export default function MovieCard({
   title,
   poster_url,
@@ -29,15 +31,15 @@ export default function MovieCard({
               <HeartIcon />
             </Button>
           </div>
-          <figure className="w-[250px] h-[370px]">
-              <Image
-                src={poster_url}
+          <figure className="w-[250px] h-[370px] text-center">
+              {poster_url ? <Image
+                src={`https://image.tmdb.org/t/p/w500${poster_url}`}
                 width={250}
                 height={370}
                 alt="The movie poster for the movie"
                 data-testid="movie-poster"
                 className="w-full h-full object-cover"
-              />
+              />: <p className='text-gray-400 mt-3'>No Image</p>}
           </figure>
         </div>
         <div className="flex-col flex gap-3">
