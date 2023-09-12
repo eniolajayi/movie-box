@@ -52,8 +52,8 @@ export default async function SearchDetails({
         <div className="grid grid-cols-4 gap-20 ">
           {data.results.map((result) => {
             const resultDate = new Date(result.release_date);
-            const imdbRating = Math.ceil(result.popularity / 100);
-            const rtRating = getPercentValue(result.vote_average, 10);
+            const imdbRating = getPercentValue(result.vote_average, 10);
+            const rtRating = getPercentValue(result.popularity / 100, 10);
             const genreNames = getGenreNames(result.genre_ids);
 
             return (

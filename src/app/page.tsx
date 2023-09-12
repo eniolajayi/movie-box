@@ -9,7 +9,9 @@ import { getTopRatedMovies } from '@/shared/tmdb';
 
 export default async function Home() {
   const data: TMDBResponse = await getTopRatedMovies();
-  const featMovies = data.results.slice(0, 10);
+  const featMovies = data.results
+    .slice(0, 10)
+    .sort((a, b) => b.vote_average - a.vote_average);
 
   return (
     <>
@@ -36,8 +38,8 @@ export default async function Home() {
             <Suspense fallback={<h1>Loading featured movies...</h1>}>
               {featMovies.map((result) => {
                 const resultDate = new Date(result.release_date);
-                const imdbRating = Math.ceil(result.popularity / 100);
-                const rtRating = getPercentValue(result.vote_average, 10);
+                const imdbRating = getPercentValue(result.vote_average, 10);
+                const rtRating = getPercentValue(result.popularity / 100, 10);
                 const genreNames = getGenreNames(result.genre_ids);
 
                 return (
