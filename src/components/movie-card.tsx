@@ -4,8 +4,6 @@ import rottenTomatoesIcon from '../assets/rotten-tomatoes-icon.png';
 import { Movie } from '../shared/types';
 import Link from 'next/link';
 import { Button } from './ui/button';
-import { AspectRatio } from './ui/aspect-ratio';
-import { Suspense } from 'react';
 
 export type MovieCardProps = Movie;
 
