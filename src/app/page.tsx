@@ -1,7 +1,9 @@
+import Link from 'next/link';
 import MovieCard from '../components/movie-card';
-import SearchBar from '../components/search-bar';
 import { TMDBResponse } from '../shared/types';
 import { getPercentValue } from '../shared/utils';
+import { ChevronRightIcon } from 'lucide-react';
+import { Suspense } from 'react';
 
 async function getTopRatedMovies() {
   const url =
@@ -25,33 +27,51 @@ async function getTopRatedMovies() {
 
 export default async function Home() {
   const data: TMDBResponse = await getTopRatedMovies();
+  const featMovies = data.results.slice(0, 10);
 
   return (
     <>
-      <header>
-        <div>MovieBox</div>
-        <SearchBar />
-      </header>
-      <main>
-        {data.results.map((result) => {
-          const resultDate = new Date(result.release_date);
-          const imdbRating = Math.ceil(result.popularity / 100);
-          const rtRating = getPercentValue(result.vote_average, 10);
+      <section className="mb-3">
+        <div className="flex items-center justify-between container px-4 py-3 md:container md:mx-auto ">
+          <h2 className=" leading-normal text-4xl font-bold">
+            Featured Movies
+          </h2>
 
-          return (
-            <MovieCard
-              key={result.id}
-              id={result.id}
-              title={result.title}
-              poster_url={`https://image.tmdb.org/t/p/w500${result.poster_path}`}
-              release_date={resultDate}
-              release_type={''}
-              genre=""
-              imdb_rating={imdbRating}
-              rt_rating={rtRating}
-            />
-          );
-        })}
+          <Link
+            href={'/'}
+            className=" text-rose-700 gap-2 text-lg flex leading-none"
+          >
+            <span>See more</span>
+            <ChevronRightIcon size={20} className="flex-shrink-0 " />
+          </Link>
+        </div>
+      </section>
+      <main>
+        <div className="px-4 py-3 md:container md:mx-auto min-h-[400px]">
+          <div className="grid grid-cols-4 gap-20 ">
+            <Suspense fallback={<h1>Loading featured movies...</h1>}>
+              {featMovies.map((result) => {
+                const resultDate = new Date(result.release_date);
+                const imdbRating = Math.ceil(result.popularity / 100);
+                const rtRating = getPercentValue(result.vote_average, 10);
+
+                return (
+                  <MovieCard
+                    key={result.id}
+                    id={result.id}
+                    title={result.title}
+                    poster_url={`https://image.tmdb.org/t/p/w500${result.poster_path}`}
+                    release_date={resultDate}
+                    release_type={''}
+                    genre=""
+                    imdb_rating={imdbRating}
+                    rt_rating={rtRating}
+                  />
+                );
+              })}
+            </Suspense>
+          </div>
+        </div>
       </main>
     </>
   );
