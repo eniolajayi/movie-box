@@ -4,6 +4,7 @@ import { TMDBResponse } from '../shared/types';
 import { getGenreNames, getPercentValue } from '../shared/utils';
 import { ChevronRightIcon } from 'lucide-react';
 import { Suspense } from 'react';
+import HeroSection from './hero';
 
 async function getTopRatedMovies() {
   const url =
@@ -32,6 +33,8 @@ export default async function Home() {
   return (
     <>
       <section className="mb-3">
+        <HeroSection />
+
         <div className="flex items-center justify-between container px-4 py-3 md:container md:mx-auto ">
           <h2 className=" leading-normal text-4xl font-bold">
             Featured Movies
