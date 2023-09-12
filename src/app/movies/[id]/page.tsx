@@ -36,19 +36,23 @@ export default async function MovieDetails({
   return (
     <section style={poppins.style} className="mt-3">
       <div className="container px-4 py-3 md:container md:mx-auto ">
-        <div className="h-[450px] text-center">
+        <div className=" text-center">
           {/* Todo  Extract tmdb image api url as a constant */}
           {details.backdrop_path ? (
-            <Image
-              src={`https://image.tmdb.org/t/p/original/${details.backdrop_path}`}
-              width={700}
-              height={450}
-              alt={''}
-              className="w-full h-full object-cover rounded-2xl"
-              priority
-            />
+            <div className="h-[450px]">
+              <Image
+                src={`https://image.tmdb.org/t/p/original/${details.backdrop_path}`}
+                width={700}
+                height={450}
+                alt={''}
+                className="w-full h-full object-cover rounded-2xl"
+                priority
+              />
+            </div>
           ) : (
-            <div className="mt-3">No Image Available</div>
+            <div className="h-[200px] flex justify-center items-center bg-gray-300">
+              <p className="text-gray-600">Backdrop not available</p>
+            </div>
           )}
         </div>
 
@@ -56,7 +60,8 @@ export default async function MovieDetails({
           <h1 className=" font-medium leading-normal text-2xl">
             <span data-testid="movie-title">{details.title}</span> .{' '}
             <span data-testid="movie-release-date">
-              {releaseDate.getUTCFullYear()}-{releaseDate.getUTCMonth()}-{releaseDate.getUTCDay()}
+              {releaseDate.getUTCFullYear()}-{releaseDate.getUTCMonth()}-
+              {releaseDate.getUTCDay()}
             </span>{' '}
             .{' '}
             <span>
@@ -80,11 +85,11 @@ export default async function MovieDetails({
         </div>
         <div className=" h-12 flex items-center">
           <Link
-            href={'/'}
+            href={`/`}
             className=" text-rose-700 gap-2 text-lg flex leading-none"
           >
-            <span>Go back</span>
             <ChevronLeftIcon size={20} className="flex-shrink-0 " />
+            <span>Go back to homepage</span>
           </Link>
         </div>
       </div>
