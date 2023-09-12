@@ -28,6 +28,8 @@ export default async function MovieDetails({
                 height={450}
                 alt={''}
                 className="w-full h-full object-cover rounded-2xl"
+                fill
+                loading={'eager'}
                 priority
               />
             </div>
