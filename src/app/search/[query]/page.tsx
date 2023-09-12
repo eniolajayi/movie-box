@@ -70,8 +70,11 @@ export default async function SearchDetails({
             );
           })}
         </div>
+        {/* Todo Add Pagination */}
         <div className="my-9 w-full text-center">
-          <span>Page {data.page}</span>
+          <span>Page {data.page} </span>
+          <span>of {"  "}</span>
+          <span>{Math.floor(data.total_results / data.results.length)}</span>
         </div>
       </div>
     </section>

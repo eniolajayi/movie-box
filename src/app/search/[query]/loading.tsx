@@ -1,5 +1,6 @@
 import { Skeleton } from '@/components/ui/skeleton';
 
+// Todo Create reusable card skeleton
 export default function Loading() {
   return (
     <div className="px-4 py-3 md:container md:mx-auto min-h-[400px]">
