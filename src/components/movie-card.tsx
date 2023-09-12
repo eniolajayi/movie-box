@@ -3,6 +3,9 @@ import imdbIcon from '../assets/imdb-icon.png';
 import rottenTomatoesIcon from '../assets/rotten-tomatoes-icon.png';
 import { Movie } from '../shared/types';
 import Link from 'next/link';
+import { Button } from './ui/button';
+import { AspectRatio } from './ui/aspect-ratio';
+import { Suspense } from 'react';
 
 export type MovieCardProps = Movie;
 
@@ -17,42 +20,50 @@ export default function MovieCard({
   id,
 }: MovieCardProps) {
   return (
-    <div data-testid="movie-card">
-      <div>
-        <div>
-          <div>
-            <div>{release_type}</div>
-            <div>
+    <div data-testid="movie-card" className="w-[250px] min-h-[450px]">
+      <div className="">
+        <div className="mb-3 relative">
+          <div className="w-full absolute flex top-1 left-0">
+            <div className="flex-1">{release_type}</div>
+            <Button size={'icon'} variant={'ghost'} className="rounded-full">
               <HeartIcon />
-            </div>
+            </Button>
           </div>
-          <figure>
-            <Image
-              src={poster_url}
-              width={500}
-              height={750}
-              alt="The movie poster for the movie"
-              data-testid="movie-poster"
-            />
+          <figure className="w-[250px] h-[370px]">
+              <Image
+                src={poster_url}
+                width={250}
+                height={370}
+                alt="The movie poster for the movie"
+                data-testid="movie-poster"
+                className="w-full h-full object-cover"
+              />
           </figure>
         </div>
-        <div>
-          <span data-testid="movie-release-date">
-            {release_date.getFullYear()}
+        <div className="flex-col flex gap-3">
+          <span
+            data-testid="movie-release-date"
+            className="flex-grow text-gray-400 text-xs leading-normal uppercase"
+          >
+            USA, {release_date.getUTCFullYear()}
           </span>
-          <h3>
-            <Link data-testid="movie-title" href={`/movies/${id}`}>
+          <h3 className="flex-grow">
+            <Link
+              data-testid="movie-title"
+              href={`/movies/${id}`}
+              className=" text-lg font-bold leading-normal  hover:text-rose-500 ease-in-out"
+            >
               {title}
             </Link>
           </h3>
-          <div>
-            <div>
+          <div className="w-full flex flex-grow justify-between ">
+            <div className="flex gap-2">
               <Image src={imdbIcon} width={35} height={17} alt="" />
-              <small>{imdb_rating}.0 / 100</small>
+              <small className="">{imdb_rating}.0 / 100</small>
             </div>
-            <div>
+            <div className="flex gap-2">
               <Image src={rottenTomatoesIcon} width={16} height={17} alt="" />
-              <small>{rt_rating}%</small>
+              <small className="">{rt_rating}%</small>
             </div>
           </div>
           <p>{genre}</p>
