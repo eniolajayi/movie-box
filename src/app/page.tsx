@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import MovieCard from '../components/movie-card';
 import { TMDBResponse } from '../shared/types';
-import { getPercentValue } from '../shared/utils';
+import { getGenreNames, getPercentValue } from '../shared/utils';
 import { ChevronRightIcon } from 'lucide-react';
 import { Suspense } from 'react';
 
@@ -54,6 +54,7 @@ export default async function Home() {
                 const resultDate = new Date(result.release_date);
                 const imdbRating = Math.ceil(result.popularity / 100);
                 const rtRating = getPercentValue(result.vote_average, 10);
+                const genreNames = getGenreNames(result.genre_ids);
 
                 return (
                   <MovieCard
@@ -63,7 +64,7 @@ export default async function Home() {
                     poster_url={result.poster_path}
                     release_date={resultDate}
                     release_type={''}
-                    genre=""
+                    genres={genreNames}
                     imdb_rating={imdbRating}
                     rt_rating={rtRating}
                   />

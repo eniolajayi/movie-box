@@ -7,18 +7,19 @@ import { Button } from './ui/button';
 
 export type MovieCardProps = Movie;
 
-// Todo Refactor MovieCard component for Re-usablity 
+// Todo Refactor MovieCard component for Re-usablity
 // Todo Remove any tight coupling from MovieCard component
 export default function MovieCard({
   title,
   poster_url,
   release_date,
   release_type,
-  genre,
+  genres,
   imdb_rating,
   rt_rating,
   id,
 }: MovieCardProps) {
+  const sortedGenres = genres.sort();
   return (
     <div data-testid="movie-card" className="w-[250px] min-h-[450px]">
       <div className="">
@@ -30,14 +31,18 @@ export default function MovieCard({
             </Button>
           </div>
           <figure className="w-[250px] h-[370px] text-center">
-              {poster_url ? <Image
+            {poster_url ? (
+              <Image
                 src={`https://image.tmdb.org/t/p/w500${poster_url}`}
                 width={250}
                 height={370}
                 alt="The movie poster for the movie"
                 data-testid="movie-poster"
                 className="w-full h-full object-cover"
-              />: <p className='text-gray-400 mt-3'>No Image</p>}
+              />
+            ) : (
+              <p className="text-gray-400 mt-3">No Image</p>
+            )}
           </figure>
         </div>
         <div className="flex-col flex gap-3">
@@ -66,7 +71,11 @@ export default function MovieCard({
               <small className="">{rt_rating}%</small>
             </div>
           </div>
-          <p>{genre}</p>
+          <p className="font-bold leading-normal text-xs text-gray-400">
+            {sortedGenres.map((genre, idx, arr) =>
+              idx == arr.length - 1 ? genre : genre + ', ',
+            )}
+          </p>
         </div>
       </div>
     </div>

@@ -29,7 +29,7 @@ export interface Movie {
   release_date: Date;
   imdb_rating: number;
   rt_rating: number;
-  genre: string; // Expand type
+  genres: string[]; // Expand type
   release_type: string; // Expand type
 }
 
