@@ -33,7 +33,7 @@ export default async function MovieDetails({
               />
             </div>
           ) : (
-            <div className="h-[200px] flex justify-center items-center bg-gray-300">
+            <div className="h-[200px] rounded-2xl flex justify-center items-center bg-gray-300">
               <p className="text-gray-600">Backdrop not available</p>
             </div>
           )}
