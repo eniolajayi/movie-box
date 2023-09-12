@@ -49,7 +49,7 @@ export default function MovieCard({
           <span className="flex-grow text-gray-400 text-xs leading-normal uppercase">
             USA,{' '}
             <span data-testid="movie-release-date">
-              {release_date.getUTCFullYear()}
+            {release_date.getUTCFullYear()}-{release_date.getUTCMonth()}-{release_date.getUTCDay()}
             </span>
           </span>
           <h3 className="flex-grow">
