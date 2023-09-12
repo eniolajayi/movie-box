@@ -17,7 +17,7 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: ['DM Sans', ...defaultTheme.fontFamily.sans],
+        sans: ['"DM Sans"', ...defaultTheme.fontFamily.sans],
       },
       keyframes: {
         'accordion-down': {
