@@ -46,11 +46,11 @@ export default function MovieCard({
           </figure>
         </div>
         <div className="flex-col flex gap-3">
-          <span
-            data-testid="movie-release-date"
-            className="flex-grow text-gray-400 text-xs leading-normal uppercase"
-          >
-            USA, {release_date.getUTCFullYear()}
+          <span className="flex-grow text-gray-400 text-xs leading-normal uppercase">
+            USA,{' '}
+            <span data-testid="movie-release-date">
+              {release_date.getUTCFullYear()}
+            </span>
           </span>
           <h3 className="flex-grow">
             <Link

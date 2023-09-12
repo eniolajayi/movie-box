@@ -38,7 +38,7 @@ export default async function MovieDetails({
             {releaseDate.toUTCString()}
           </span>
           {" "}
-          <span data-testid="movie-runtime">{details.runtime}min</span>
+          <span><span data-testid="movie-runtime">{details.runtime}</span><span>min</span> </span>
         </h1>
       </main>
       <p data-testid="movie-overview">{details.overview}</p>
