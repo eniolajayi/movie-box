@@ -31,10 +31,30 @@ export default async function SearchDetails({
   params: { query: string };
 }) {
   const data: TMDBResponse = await findMovieByTitle(params.query);
+
+  if (data.total_results == 0) {
+    return (
+      <section className="mt-12">
+        <div className="px-4 py-3 md:container md:mx-auto min-h-[300px] text-center flex gap-8 flex-col justify-center items-center">
+          <h1 className="font-bold text-gray-600 text-2xl ">
+            No Results found for <span className="">"{params.query}"</span>
+          </h1>
+          <Link
+            href={'/'}
+            className=" text-rose-700 gap-2 text-lg flex leading-none"
+          >
+            <ChevronLeftIcon size={20} className="flex-shrink-0 " />
+            <span>Go back</span>
+          </Link>
+        </div>
+      </section>
+    );
+  }
   return (
     <section className="mt-12">
       <div className="px-4 py-3 md:container md:mx-auto min-h-[400px]">
         <div className=" h-14 mb-3 flex justify-between">
+          {/* Todo make a reusable button out of 'Go back' link */}
           <Link
             href={'/'}
             className=" text-rose-700 gap-2 text-lg flex leading-none"
