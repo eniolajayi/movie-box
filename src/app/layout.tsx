@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en" style={dmSans.style}>
       <body className=' text-gray-950 leading-normal'>
         <header className=' px-4 py-3 md:container md:mx-auto '>
-          <nav className=' grid items-center gap-3 justify-between md:grid-cols-[1fr_2fr_1fr]'>
+          <nav className=' md:grid md:items-center md:gap-3 flex flex-col justify-stretch gap-5 md:justify-between md:grid-cols-[1fr_2fr_1fr]'>
             <Logo />
             <SearchBar  label="What do you want to watch?" />
             <div className="md:flex hidden items-center justify-end gap-4">
