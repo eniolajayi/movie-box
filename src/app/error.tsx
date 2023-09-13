@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { ErrorProps } from '@/shared/types';
 
+
 export default function Error({ error, reset }: ErrorProps) {
   return (
     <div className="px-4 py-3 md:container md:mx-auto min-h-[300px] text-center flex gap-8 flex-col justify-center items-center">
