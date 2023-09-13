@@ -1,4 +1,5 @@
 import MovieCard from '@/components/movie-card';
+import { Button } from '@/components/ui/button';
 import { findMovieByTitle } from '@/shared/tmdb';
 import { TMDBResponse } from '@/shared/types';
 import { getGenreNames, getPercentValue } from '@/shared/utils';
@@ -8,7 +9,7 @@ import Link from 'next/link';
 export default async function SearchDetails({
   params,
 }: {
-  params: { query: string };
+  params: { query: string, num: number };
 }) {
   const data: TMDBResponse = await findMovieByTitle(params.query);
 

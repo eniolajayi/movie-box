@@ -21,7 +21,7 @@ export default function SearchBar({ label }: SearchBarProps) {
 
   const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    router.push(`/search/${query}`);
+    router.push(`/search/${query}/1`);
   };
 
   return (

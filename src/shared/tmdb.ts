@@ -38,8 +38,8 @@ export async function getMovieDetails(movieId: number) {
   return res.json();
 }
 
-export async function findMovieByTitle(movieTitle: string) {
-  const url = `https://api.themoviedb.org/3/search/movie?query=${movieTitle}&include_adult=false&language=en-US&page=1`;
+export async function findMovieByTitle(movieTitle: string, page: number = 1) {
+  const url = `https://api.themoviedb.org/3/search/movie?query=${movieTitle}&include_adult=false&language=en-US&page=${page}`;
 
   const res = await fetch(url, options);
 
