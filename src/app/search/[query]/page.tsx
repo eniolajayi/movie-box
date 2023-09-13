@@ -30,6 +30,7 @@ export default async function SearchDetails({
       </section>
     );
   }
+
   return (
     <section className="mt-12">
       <div className="px-4 py-3 md:container md:mx-auto min-h-[400px]">
